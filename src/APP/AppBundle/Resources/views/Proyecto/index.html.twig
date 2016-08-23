@@ -1,0 +1,55 @@
+{% extends '::backend.html.twig' %}
+
+{% block contenido %}
+
+    <div class="row-fluid">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            {% include ":includes:flashes.html.twig" %}
+            <div class="x_panel">       
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <h2>Listado de proyectos</h2>                   
+                </div>
+                <form action="{{ path('proyecto') }}" method="post" class="list_form" name="list_form" enctype="multipart/form-data"  accept-charset="UTF-8"> 
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input name="simple_search" class="form-control" placeholder="Buscar proyectos..." type="text">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" id="button_search">Go!</button>
+                        </span>
+                    </div>
+                </div>
+                </form>
+                 <div class="x_title clearfix"></div>
+              
+                
+                <div class="x_content">
+                    <table class="table table-striped table-bordered" id="tabla">
+                        <thead>
+                            <tr>                                
+                                <th style="text-align: center;">Nombre</th>     
+                                <th style="text-align: center;">Acciones</th>  
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in pagination %}
+                                <tr>
+                                    <td>{{ item.nombre }}</td>
+
+                                    <td class="td-acciones text-center">
+                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
+                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="pagnav table-bottom">
+                        {{ knp_pagination_render(pagination, 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig') }}
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

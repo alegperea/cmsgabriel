@@ -1,0 +1,6 @@
+## YAML Template.
+---
+name: Doctrine Migrations
+migrations_namespace: DoctrineMigrations
+table_name: doctrine_migration_versions
+migrations_directory: /data/DoctrineMigrations

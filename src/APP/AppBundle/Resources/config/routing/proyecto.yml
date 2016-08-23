@@ -1,0 +1,40 @@
+proyecto:
+    path:  /proyectos
+    defaults: { _controller: "AppBundle:Proyecto:index" }
+
+proyecto_show:
+    path:  /{id}/show
+    defaults: { _controller: "AppBundle:Proyecto:show" }
+
+proyecto_new:
+    path:  /new
+    defaults: { _controller: "AppBundle:Proyecto:new" }
+
+proyecto_create:
+    path:  /create
+    defaults: { _controller: "AppBundle:Proyecto:create" }
+    requirements: { _method: post }
+    
+proyecto_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "AppBundle:Proyecto:edit" }
+
+proyecto_update:
+    path:  /{id}/update
+    defaults: { _controller: "AppBundle:Proyecto:update" }
+    requirements: { _method: post }
+
+paginas_inicio:
+    path:  /paginasinicio
+    defaults: { _controller: "AppBundle:Proyecto:paginasInicio" }
+    requirements: { _method: post }
+
+proyecto_eliminar:
+    path:  /eliminar
+    defaults: { _controller: "AppBundle:Proyecto:eliminar" }
+    requirements: { _method: post }
+    
+proyecto_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "AppBundle:Proyecto:delete" }
+    requirements: { _method: post|delete }

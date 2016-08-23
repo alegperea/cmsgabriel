@@ -1,0 +1,30 @@
+{% extends 'AppBundle:Default:_layout.html.twig' %}
+{% form_theme form 'CoreBundle:Form:form.html.twig' %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            {% include ":includes:flashes.html.twig" %}
+            <div class="x_panel">       
+                <div class="x_title">
+                    <h2>Editar proyecto</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <form accept-charset="UTF-8" class="form-horizontal form-label-left" enctype="multipart/form-data" method="post" action="{{ path('proyecto_update', { 'id': entity.id  }) }}">
+                        {{ form_widget(form) }}
+                        <div class="ln_solid"></div>              
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">        
+                                {% include "CoreBundle:Default:volverGuardar.html.twig" with { 'path' : 'proyecto' } %}
+                            </div>
+                        </div>
+                    </form>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

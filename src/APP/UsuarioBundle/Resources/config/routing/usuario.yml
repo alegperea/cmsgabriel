@@ -1,0 +1,79 @@
+usuario:
+    path:  /
+    defaults: { _controller: "UsuarioBundle:Usuario:index" }
+
+usuario_show:
+    path:  /{id}/show
+    defaults: { _controller: "UsuarioBundle:Usuario:show" }
+
+usuario_new:
+    path:  /new
+    defaults: { _controller: "UsuarioBundle:Usuario:new" }
+
+usuario_create:
+    path:  /create
+    defaults: { _controller: "UsuarioBundle:Usuario:create" }
+    requirements: { _method: post }
+    
+usuario_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "UsuarioBundle:Usuario:edit" }
+
+usuario_update:
+    path:  /{id}/update
+    defaults: { _controller: "UsuarioBundle:Usuario:update" }
+    requirements: { _method: post }
+
+usuario_restore:
+    path:  /{id}/restore
+    defaults: { _controller: "UsuarioBundle:Usuario:restore" }
+    requirements: { _method: post }
+
+usuario_edit_pass:
+    path:  /{id}/editpass
+    defaults: { _controller: "UsuarioBundle:Usuario:editPass" }
+    
+usuario_update_pass:
+    path:  /{id}/updatepass
+    defaults: { _controller: "UsuarioBundle:Usuario:updatePass" }
+    requirements: { _method: post }
+    
+usuario_showperfilace:
+    path: /showperfil
+    defaults: { _controller: "UsuarioBundle:Usuario:showPerfilAce" }
+    
+usuario_inbox:
+    path:  /inbox/
+    defaults: { _controller: "UsuarioBundle:Usuario:inbox" }
+    
+usuario_outbox:
+    path:  /outbox/
+    defaults: { _controller: "UsuarioBundle:Usuario:outbox" }
+
+usuario_escribir:
+    path:  /escribir/
+    defaults: { _controller: "UsuarioBundle:Usuario:escribir" }
+
+usuario_leer:
+    path:  /{id}/leer/
+    defaults: { _controller: "UsuarioBundle:Usuario:leer" }
+  
+paginas_inicio:
+    path:  /paginasinicio
+    defaults: { _controller: "UsuarioBundle:Usuario:paginasInicio" }
+    requirements: { _method: post }
+
+usuario_eliminar:
+    path:  /eliminar
+    defaults: { _controller: "UsuarioBundle:Usuario:eliminar" }
+    requirements: { _method: post }
+    
+usuario_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "UsuarioBundle:Usuario:delete" }
+    requirements: { _method: post|delete }
+
+usuario_restaurar:
+    path:  /restaurar
+    defaults: { _controller: "UsuarioBundle:Usuario:restaurar" }
+    requirements: { _method: post }
