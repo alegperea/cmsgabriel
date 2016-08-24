@@ -11,29 +11,30 @@ security:
             entity: { class: APP\UsuarioBundle\Entity\Usuario, property: username }
 
     firewalls:
-        frontend:
-            pattern: ^/
+        secured_area:
+            pattern: ^/admin
             anonymous: ~
             form_login:
                 login_path: usuario_login
                 check_path: usuario_login_check
-                default_target_path: /home
+                default_target_path: app_index
                 always_use_default_target_path: true
             logout:
                 path: usuario_logout
-            
+                target: usuario_login
+  
+        # this is a catch-all for the admin area
 
     access_control:
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/inicio, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/usuario/showperfil, roles: [IS_AUTHENTICATED_FULLY] }      
         - { path: ^/admin/, roles: [ROLE_ADMINISTRADOR] }
         - { path: ^/admin/*, roles: [ROLE_ADMINISTRADOR] }
         - { path: ^/usuario/*, roles: [ROLE_ADMINISTRADOR] }
         - { path: ^/perfil/*, roles: [ROLE_ADMINISTRADOR] }
         - { path: ^/rol/*, roles: [ROLE_ADMINISTRADOR] }
-        - { path: ^/cliente/*, roles: [ROLE_GESTOR, ROLE_ADMINISTRADOR] }
+        - { path: ^/proyectos/*, roles: [ROLE_GESTOR, ROLE_ADMINISTRADOR] }
         - { path: ^/home/*, roles: [ROLE_GESTOR, ROLE_ADMINISTRADOR] }
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/*, roles: IS_AUTHENTICATED_FULLY }

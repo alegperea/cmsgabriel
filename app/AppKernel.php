@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new APP\CoreBundle\CoreBundle(),
             new APP\UsuarioBundle\UsuarioBundle(),            
             new APP\AppBundle\AppBundle(),
+            new APP\FrontBundle\FrontBundle(),
             new RMS\PushNotificationsBundle\RMSPushNotificationsBundle()
         ];
 

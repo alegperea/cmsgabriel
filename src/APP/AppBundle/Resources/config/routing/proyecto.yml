@@ -1,5 +1,5 @@
 proyecto:
-    path:  /proyectos
+    path:  /
     defaults: { _controller: "AppBundle:Proyecto:index" }
 
 proyecto_show:

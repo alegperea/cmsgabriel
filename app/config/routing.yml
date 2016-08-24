@@ -1,26 +1,26 @@
 usuario_login:
-    path: /
+    path: /admin
     defaults: { _controller: UsuarioBundle:Default:login }
 
 usuario_login_check:
-    path: /login_check
+    path: /admin/login_check
 
 usuario_logout:
-   path: /logout
-
-app:
-    resource: "@AppBundle/Resources/config/routing.yml"
-    prefix:   /
+   path: /admin/logout
 
 UsuarioBundle:
     resource: "@UsuarioBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 CoreBundle:
     resource: "@CoreBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
     
 AppBundle:
     resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /admin
+    
+FrontBundle:
+    resource: "@FrontBundle/Resources/config/routing.yml"
     prefix:   /
     
