@@ -112,12 +112,14 @@ class DefaultController extends Controller
    public function loginAction()
     {
         $helper = $this->get('security.authentication_utils');
-        $session = $this->getRequest()->getSession();
-           if ($session->has('login')) {
-               return $this->redirect($this->generateUrl('app_index'));
-           }else {
-               exit();
-           }
+
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            
+            return $this->redirect($this->generateUrl('app_index'));
+            
+        }
+        
+        
         return $this->render('UsuarioBundle:Default:login.html.twig', [
             // last username entered by the user (if any)
             'last_username' => $helper->getLastUsername(),
