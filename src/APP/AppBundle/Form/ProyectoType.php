@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityRepository;
 use \Symfony\Component\OptionsResolver\OptionsResolver;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class ProyectoType extends AbstractType {
+class VehiculoType extends AbstractType {
 
     /**
      * @param FormBuilderInterface $builder
@@ -17,11 +17,11 @@ class ProyectoType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                ->add('nombre', TextType::class, array('attr' => array('class' => 'form-control')))
+                ->add('marca', TextType::class, array('attr' => array('class' => 'form-control')))
   
-                ->add('usuarios', null, array(
+                ->add('categoria', null, array(
                     'attr' => array(
-                        'class' => 'select2_multiple form-control',
+                        'class' => 'select2_simple form-control',
                         'multiple' => true
                     )
                 ))
