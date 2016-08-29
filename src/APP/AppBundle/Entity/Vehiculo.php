@@ -46,7 +46,7 @@ class Vehiculo {
     /**
      * @var string
      *
-     * @ORM\Column(name="patente", type="string", length=255, unique=true)
+     * @ORM\Column(name="siniestro", type="string", length=255, unique=true)
      */
     private $siniestro;
 

@@ -182,11 +182,6 @@ class Usuario implements AdvancedUserInterface, \Serializable {
     private $telefonoAlternativo;
 
     /**
-     * @ORM\ManyToMany(targetEntity="APP\AppBundle\Entity\Proyecto", mappedBy="usuarios")
-     */
-    private $proyectos;
-
-    /**
      * @var string $interno
      *
      * @ORM\Column(name="interno", type="string", length=10, nullable=true)
@@ -257,7 +252,6 @@ class Usuario implements AdvancedUserInterface, \Serializable {
         $this->fecha_actualizacion = new \DateTime();
         $this->eliminado = false;
         $this->rutaFoto = "images.jpeg";
-        $this->proyectos = new ArrayCollection();
     }
 
     /**
@@ -716,19 +710,5 @@ class Usuario implements AdvancedUserInterface, \Serializable {
         return ($collection);
     }
 
-    /**
-     * Set proyectos
-     *
-     */
-    public function setProyectos($proyectos) {
-        $this->proyectos = $proyectos;
-    }
-
-    /**
-     * Get proyectos
-     */
-    public function getProyectos() {
-        return $this->proyectos;
-    }
 
 }

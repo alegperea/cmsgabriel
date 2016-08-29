@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 use \Symfony\Component\OptionsResolver\OptionsResolver;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class VehiculoType extends AbstractType {
 
@@ -18,13 +19,22 @@ class VehiculoType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('marca', TextType::class, array('attr' => array('class' => 'form-control')))
-  
-                ->add('categoria', null, array(
-                    'attr' => array(
-                        'class' => 'select2_simple form-control',
-                        'multiple' => true
-                    )
-                ))
+                ->add('modelo', TextType::class, array('attr' => array('class' => 'form-control')))
+                ->add('patente', TextType::class, array('attr' => array('class' => 'form-control')))
+                ->add('siniestro', TextType::class, array('attr' => array('class' => 'form-control')))
+                ->add('categoria', EntityType::class, array(
+                'class' => 'AppBundle:Categoria',
+                'query_builder' => function (EntityRepository $er) {
+                  return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+                },                
+                'empty_value' => ' - Seleccionar - ',
+                'attr' => array(
+                    'class' => 'form-control'
+                ),
+                'required' => true
+            ))
+
+
         ;
     }
 
@@ -33,12 +43,12 @@ class VehiculoType extends AbstractType {
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'APP\AppBundle\Entity\Proyecto'
+            'data_class' => 'APP\AppBundle\Entity\Vehiculo'
         ));
     }
 
     public function getName() {
-        return 'app_appbundle_proyecto';
+        return 'app_appbundle_vehiculo';
     }
 
     /**
@@ -46,7 +56,7 @@ class VehiculoType extends AbstractType {
      */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'APP\AppBundle\Entity\Proyecto',
+            'data_class' => 'APP\AppBundle\Entity\Vehiculo',
         ));
     }
 

@@ -3,7 +3,7 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: consolapush
+    database_name: cmsgmotor
     database_user: root
     database_password: 1q2w3e4r
     mailer_transport: smtp
@@ -18,5 +18,5 @@ parameters:
     directorio.imagenes: '%kernel.root_dir%/../web/uploads/images/'
     sys_logo: /images/logo.png
     sys_logo_txt: ''
-    sys_logo_url: 'http://consolapush.local/app_dev.php'
-    sys_nombre: 'Consolapush'
+    sys_logo_url: 'http://cmsgabriel.local/app_dev.php'
+    sys_nombre: cmsgmotor

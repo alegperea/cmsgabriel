@@ -6,6 +6,6 @@ AppBundle_default:
     resource: "@AppBundle/Resources/config/routing/default.yml"
     prefix:   /
     
-AppBundle_proyecto:
-    resource: "@AppBundle/Resources/config/routing/proyecto.yml"
-    prefix:   /proyectos
+AppBundle_vehiculo:
+    resource: "@AppBundle/Resources/config/routing/vehiculo.yml"
+    prefix:   /vehiculo

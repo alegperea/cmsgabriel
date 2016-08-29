@@ -1,0 +1,40 @@
+vehiculo:
+    path:  /
+    defaults: { _controller: "AppBundle:Vehiculo:index" }
+
+vehiculo_show:
+    path:  /{id}/show
+    defaults: { _controller: "AppBundle:Vehiculo:show" }
+
+vehiculo_new:
+    path:  /new
+    defaults: { _controller: "AppBundle:Vehiculo:new" }
+
+vehiculo_create:
+    path:  /create
+    defaults: { _controller: "AppBundle:Vehiculo:create" }
+    requirements: { _method: post }
+    
+vehiculo_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "AppBundle:Vehiculo:edit" }
+
+vehiculo_update:
+    path:  /{id}/update
+    defaults: { _controller: "AppBundle:Vehiculo:update" }
+    requirements: { _method: post }
+
+paginas_inicio:
+    path:  /paginasinicio
+    defaults: { _controller: "AppBundle:Vehiculo:paginasInicio" }
+    requirements: { _method: post }
+
+vehiculo_eliminar:
+    path:  /eliminar
+    defaults: { _controller: "AppBundle:Vehiculo:eliminar" }
+    requirements: { _method: post }
+    
+vehiculo_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "AppBundle:Vehiculo:delete" }
+    requirements: { _method: post|delete }

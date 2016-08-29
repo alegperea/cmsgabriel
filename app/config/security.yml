@@ -34,7 +34,7 @@ security:
         - { path: ^/usuario/*, roles: [ROLE_ADMINISTRADOR] }
         - { path: ^/perfil/*, roles: [ROLE_ADMINISTRADOR] }
         - { path: ^/rol/*, roles: [ROLE_ADMINISTRADOR] }
-        - { path: ^/proyectos/*, roles: [ROLE_GESTOR, ROLE_ADMINISTRADOR] }
+        - { path: ^/vehiculos/*, roles: [ROLE_GESTOR, ROLE_ADMINISTRADOR] }
         - { path: ^/home/*, roles: [ROLE_GESTOR, ROLE_ADMINISTRADOR] }
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/*, roles: IS_AUTHENTICATED_FULLY }
