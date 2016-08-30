@@ -7,7 +7,7 @@
             {% include ":includes:flashes.html.twig" %}
             <div class="x_panel">       
                 <div class="col-md-5 col-sm-5 col-xs-12">
-                    <h2>Listado de vehiculos</h2>                   
+                    <h2>Listado de categorias</h2>                   
                 </div>                
                  <div class="x_title clearfix"></div>
               
@@ -27,8 +27,8 @@
                                     <td>{{ item.nombre }}</td>
 
                                     <td class="td-acciones text-center">
-                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
-                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
+                                        <a class="btn btn-sm btn-default" href="{{ path('categoria_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
+                                        <a class="btn btn-sm btn-default" href="{{ path('categoria_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
 
                                     </td>
                                 </tr>

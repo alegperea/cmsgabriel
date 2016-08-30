@@ -1,0 +1,32 @@
+{% extends '::backend.html.twig' %}
+
+{% block contenido %}
+    {% include ":includes:flashes.html.twig" %}
+    <div class="row-fluid">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">       
+                <div class="x_title">
+                    <h2>Detalle de la compania</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="show-view">
+                        <div><label>Compania: </label> {{ entity.nombre |default('') }}</div>
+                        <div><label>Telefono: </label> {{ entity.telefono |default('') }}</div>
+                        <div><label>Cuit: </label> {{ entity.cuit |default('') }}</div>
+                        <div><label>Mail: </label> {{ entity.mail |default('') }}</div>
+                        
+                        <div class="ln_solid"></div>
+                        <div class="text-center">
+                            {% if is_granted('ROLE_ADMINISTRADOR') %}
+                                {% include 'CoreBundle:Default:volverEditar.html.twig' with { 'path' : 'compania', 'id' : entity.id } %} 
+                            {% else %}
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

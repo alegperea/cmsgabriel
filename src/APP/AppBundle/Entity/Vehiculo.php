@@ -61,7 +61,7 @@ class Vehiculo {
     private $categoria;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\UsuarioBundle\Entity\Usuario")
+     * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
      */
     private $usuarioAlta;
 
@@ -71,11 +71,6 @@ class Vehiculo {
      * @ORM\Column(name="fecha_alta", type="datetime")
      */
     private $fechaAlta;
-    
-
-    public function __construct() {
-        $this->fechaAlta = new \DateTime();
-    }
 
     /**
      * Get id
@@ -102,11 +97,11 @@ class Vehiculo {
         return $this->siniestro;
     }
 
-    function getCompania() {
+    public function getCompania() {
         return $this->compania;
     }
 
-    function getCategoria() {
+    public function getCategoria() {
         return $this->categoria;
     }
 

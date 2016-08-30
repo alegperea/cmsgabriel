@@ -1,0 +1,40 @@
+categoria:
+    path:  /
+    defaults: { _controller: "AppBundle:Categoria:index" }
+
+categoria_show:
+    path:  /{id}/show
+    defaults: { _controller: "AppBundle:Categoria:show" }
+
+categoria_new:
+    path:  /new
+    defaults: { _controller: "AppBundle:Categoria:new" }
+
+categoria_create:
+    path:  /create
+    defaults: { _controller: "AppBundle:Categoria:create" }
+    requirements: { _method: post }
+    
+categoria_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "AppBundle:Categoria:edit" }
+
+categoria_update:
+    path:  /{id}/update
+    defaults: { _controller: "AppBundle:Categoria:update" }
+    requirements: { _method: post }
+
+paginas_inicio:
+    path:  /paginasinicio
+    defaults: { _controller: "AppBundle:Categoria:paginasInicio" }
+    requirements: { _method: post }
+
+categoria_eliminar:
+    path:  /eliminar
+    defaults: { _controller: "AppBundle:Categoria:eliminar" }
+    requirements: { _method: post }
+    
+categoria_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "AppBundle:Categoria:delete" }
+    requirements: { _method: post|delete }

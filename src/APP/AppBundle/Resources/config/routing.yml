@@ -9,3 +9,11 @@ AppBundle_default:
 AppBundle_vehiculo:
     resource: "@AppBundle/Resources/config/routing/vehiculo.yml"
     prefix:   /vehiculo
+
+AppBundle_categoria:
+    resource: "@AppBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+
+AppBundle_compania:
+    resource: "@AppBundle/Resources/config/routing/compania.yml"
+    prefix:   /compania

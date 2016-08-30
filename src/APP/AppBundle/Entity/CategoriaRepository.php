@@ -23,14 +23,10 @@ class CategoriaRepository extends EntityRepository {
         return $qb->getQuery()->getResult();
     }
 */
-    public function findCategoria($busqueda = null) {
-        $qb = $this->createQueryBuilder('p');       
-        if ($busqueda) {
-            $qb->andWhere($qb->expr()->andX(
-                            $qb->expr()->like('p.nombre', $qb->expr()->literal('%' . $busqueda . '%'))
-            ));
-        }
-        return $qb->getQuery()->getResult();
+    public function findCategorias() {
+        $qb = $this->createQueryBuilder('c');       
+       
+        return $qb->getQuery();
     }
 
 }

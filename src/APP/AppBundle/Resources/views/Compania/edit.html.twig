@@ -7,18 +7,17 @@
             {% include ":includes:flashes.html.twig" %}
             <div class="x_panel">       
                 <div class="x_title">
-                    <h2>Nuevo vehiculo</h2>
+                    <h2>Editar comppanía</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    {% include ':includes:flashes.html.twig' %}
-                    <form accept-charset="UTF-8" class="form-horizontal form-label-left" enctype="multipart/form-data" method="post" action="{{ path('vehiculo_create') }}">
+                    <form accept-charset="UTF-8" class="form-horizontal form-label-left" enctype="multipart/form-data" method="post" action="{{ path('compania_update', { 'id': entity.id  }) }}">
                         {{ form_widget(form) }}
                         <div class="ln_solid"></div>              
 
                         <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                                
-                                {% include "CoreBundle:Default:volverGuardar.html.twig" with { 'path' : 'vehiculo' } %}
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">        
+                                {% include "CoreBundle:Default:volverGuardar.html.twig" with { 'path' : 'compania' } %}
                             </div>
                         </div>
                     </form>  

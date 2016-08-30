@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 use \Symfony\Component\OptionsResolver\OptionsResolver;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use \Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class VehiculoType extends AbstractType {
 
@@ -23,19 +23,17 @@ class VehiculoType extends AbstractType {
                 ->add('patente', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('siniestro', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('categoria', EntityType::class, array(
-                'class' => 'AppBundle:Categoria',
-                'query_builder' => function (EntityRepository $er) {
-                  return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
-                },                
-                'empty_value' => ' - Seleccionar - ',
-                'attr' => array(
-                    'class' => 'form-control'
-                ),
-                'required' => true
-            ))
+                        'attr' => array(
+                            'class' => 'form-control col-md-7 col-xs-12',
+                        ),
+                        'class' => 'AppBundle:Categoria',
+                        'query_builder' => function(EntityRepository $er) {
+                             return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+                         },
+                ));
 
 
-        ;
+        
     }
 
     /**

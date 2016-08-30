@@ -12,7 +12,6 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "raulfraile/ladybug-bundle": "~1.0",
         "knplabs/knp-paginator-bundle": "dev-master",
         "jms/security-extra-bundle": "dev-master",
         "doctrine/migrations": "1.0.*@dev",

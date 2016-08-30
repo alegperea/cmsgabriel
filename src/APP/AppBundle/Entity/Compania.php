@@ -72,7 +72,7 @@ class Compania {
     private $observaciones;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\UsuarioBundle\Entity\Usuario")
+     * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
      */
     private $usuarioAlta;
 

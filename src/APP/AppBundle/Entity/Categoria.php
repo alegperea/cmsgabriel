@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Categoria
+ * APP\AppBundle\Entity\Categoria
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="APP\AppBundle\Entity\CategoriaRepository")
@@ -30,23 +30,17 @@ class Categoria {
     private $nombre;
 
     
-    
-
-    public function __construct() {
-        $this->fechaAlta = new \DateTime();
-    }
-
    
     function getId() {
         return $this->id;
     }
 
-    function getNombre() {
+    public function getNombre() {
         return $this->nombre;
     }
 
   
-    function setNombre($nombre) {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
 

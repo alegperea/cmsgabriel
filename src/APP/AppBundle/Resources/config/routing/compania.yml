@@ -1,0 +1,40 @@
+compania:
+    path:  /
+    defaults: { _controller: "AppBundle:Compania:index" }
+
+compania_show:
+    path:  /{id}/show
+    defaults: { _controller: "AppBundle:Compania:show" }
+
+compania_new:
+    path:  /new
+    defaults: { _controller: "AppBundle:Compania:new" }
+
+compania_create:
+    path:  /create
+    defaults: { _controller: "AppBundle:Compania:create" }
+    requirements: { _method: post }
+    
+compania_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "AppBundle:Compania:edit" }
+
+compania_update:
+    path:  /{id}/update
+    defaults: { _controller: "AppBundle:Compania:update" }
+    requirements: { _method: post }
+
+paginas_inicio:
+    path:  /paginasinicio
+    defaults: { _controller: "AppBundle:Compania:paginasInicio" }
+    requirements: { _method: post }
+
+compania_eliminar:
+    path:  /eliminar
+    defaults: { _controller: "AppBundle:Compania:eliminar" }
+    requirements: { _method: post }
+    
+compania_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "AppBundle:Compania:delete" }
+    requirements: { _method: post|delete }

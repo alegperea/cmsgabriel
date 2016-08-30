@@ -7,7 +7,7 @@
             {% include ":includes:flashes.html.twig" %}
             <div class="x_panel">       
                 <div class="col-md-5 col-sm-5 col-xs-12">
-                    <h2>Listado de vehiculos</h2>                   
+                    <h2>Listado de companías</h2>                   
                 </div>                
                  <div class="x_title clearfix"></div>
               
@@ -16,7 +16,10 @@
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                         <thead>
                             <tr>                                
-                                <th style="text-align: center;">Nombre</th>     
+                                <th style="text-align: center;">Nombre</th>
+                                <th style="text-align: center;">Telefono</th>
+                                <th style="text-align: center;">Cuit</th>
+                                <th style="text-align: center;">Mail</th>
                                 <th style="text-align: center;">Acciones</th>  
 
                             </tr>
@@ -25,10 +28,13 @@
                             {% for item in entities %}
                                 <tr>
                                     <td>{{ item.nombre }}</td>
+                                    <td>{{ item.telefono }}</td>
+                                    <td>{{ item.cuit }}</td>
+                                    <td>{{ item.mail }}</td>
 
                                     <td class="td-acciones text-center">
-                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
-                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
+                                        <a class="btn btn-sm btn-default" href="{{ path('compania_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
+                                        <a class="btn btn-sm btn-default" href="{{ path('compania_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
 
                                     </td>
                                 </tr>
