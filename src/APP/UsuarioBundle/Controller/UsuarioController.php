@@ -252,8 +252,7 @@ class UsuarioController extends Controller {
         }
         $paginas_inicio = $this->getPaginasInicio($entity->getPerfil());        
         $formulario = $this->createForm(UsuarioType::class, $entity, array (
-            'usuario' => $usuario,
-            'paginas_inicio' => $paginas_inicio,          
+            'usuario' => $usuario,           
             
         ));
         

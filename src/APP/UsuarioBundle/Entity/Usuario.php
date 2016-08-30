@@ -523,42 +523,6 @@ class Usuario implements AdvancedUserInterface, \Serializable {
         return $this->telefono;
     }
 
-    /**
-     * Set interno
-     *
-     * @param string $interno
-     */
-    public function setInterno($interno) {
-        $this->interno = $interno;
-    }
-
-    /**
-     * Get interno
-     *
-     * @return string 
-     */
-    public function getInterno() {
-        return $this->interno;
-    }
-
-    /**
-     * Set oficina
-     *
-     * @param string $oficina
-     */
-    public function setOficina($oficina) {
-        $this->oficina = $oficina;
-    }
-
-    /**
-     * Get oficina
-     *
-     * @return string 
-     */
-    public function getOficina() {
-        return $this->oficina;
-    }
-
     public function setPerfil($perfil) {
         $this->perfil = $perfil;
     }

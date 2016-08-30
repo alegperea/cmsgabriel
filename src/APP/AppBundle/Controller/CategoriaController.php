@@ -40,6 +40,8 @@ class CategoriaController extends Controller {
 
         if ($form->isValid()) {                  
             $em = $this->getDoctrine()->getManager();
+            $entity->setFechaAlta(new \DateTime());
+            
             $em->persist($entity);
             $em->flush();
 

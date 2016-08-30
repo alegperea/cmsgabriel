@@ -23,17 +23,23 @@ class VehiculoType extends AbstractType {
                 ->add('patente', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('siniestro', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('categoria', EntityType::class, array(
-                        'attr' => array(
-                            'class' => 'form-control col-md-7 col-xs-12',
-                        ),
-                        'class' => 'AppBundle:Categoria',
-                        'query_builder' => function(EntityRepository $er) {
-                             return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
-                         },
+                    'attr' => array(
+                        'class' => 'form-control select2_single col-md-7 col-xs-12',
+                    ),
+                    'class' => 'AppBundle:Categoria',
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+                    },
+                ))
+                ->add('compania', EntityType::class, array(
+                    'attr' => array(
+                        'class' => 'select2_single form-control col-md-7 col-xs-12',
+                    ),
+                    'class' => 'AppBundle:Compania',
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+                    },
                 ));
-
-
-        
     }
 
     /**

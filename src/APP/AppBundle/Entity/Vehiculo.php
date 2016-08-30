@@ -25,14 +25,14 @@ class Vehiculo {
     /**
      * @var string
      *
-     * @ORM\Column(name="marca", type="string", length=255, unique=true)
+     * @ORM\Column(name="marca", type="string", length=255)
      */
     private $marca;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="modelo", type="string", length=255, unique=true)
+     * @ORM\Column(name="modelo", type="string", length=255)
      */
     private $modelo;
 
@@ -51,12 +51,18 @@ class Vehiculo {
     private $siniestro;
 
     /**
-     * @ORM\ManyToOne(targetEntity="APP\AppBundle\Entity\Compania")
+     * @var APP\AppBundle\Entity\Compania
+     *
+     * @ORM\ManyToOne(targetEntity = "APP\AppBundle\Entity\Compania")
+     * @ORM\JoinColumn(name = "compania_id", referencedColumnName = "id", nullable = false)
      */
     private $compania;
 
     /**
-     * @ORM\ManyToOne(targetEntity="APP\AppBundle\Entity\Categoria")
+     * @var APP\AppBundle\Entity\Categoria
+     *
+     * @ORM\ManyToOne(targetEntity = "APP\AppBundle\Entity\Categoria")
+     * @ORM\JoinColumn(name = "categoria_id", referencedColumnName = "id", nullable = false)
      */
     private $categoria;
 
@@ -68,7 +74,7 @@ class Vehiculo {
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_alta", type="datetime")
+     * @ORM\Column(name="fechaAlta", type="datetime")
      */
     private $fechaAlta;
 
@@ -145,9 +151,8 @@ class Vehiculo {
         $this->fechaAlta = $fechaAlta;
     }
 
-    
     public function __toString() {
-        return $this->nombre;
+        return $this->marca;
     }
 
 }

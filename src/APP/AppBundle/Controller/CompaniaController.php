@@ -40,6 +40,7 @@ class CompaniaController extends Controller {
 
         if ($form->isValid()) {                  
             $em = $this->getDoctrine()->getManager();
+            $entity->setFechaAlta(new \DateTime());
             $entity->setEstado(1);
             $em->persist($entity);
             $em->flush();

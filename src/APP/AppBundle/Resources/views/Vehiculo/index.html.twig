@@ -2,21 +2,27 @@
 
 {% block contenido %}
 
-    <div class="row-fluid">
+    <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             {% include ":includes:flashes.html.twig" %}
             <div class="x_panel">       
                 <div class="col-md-5 col-sm-5 col-xs-12">
                     <h2>Listado de vehiculos</h2>                   
                 </div>                
-                 <div class="x_title clearfix"></div>
-              
-                
+                <div class="x_title clearfix"></div>
+
+
                 <div class="x_content">
                     <table id="datatable-fixed-header" class="table table-striped table-bordered">
                         <thead>
                             <tr>                                
-                                <th style="text-align: center;">Nombre</th>     
+                                <th style="text-align: center;">Marca</th>  
+                                <th style="text-align: center;">Modelo</th> 
+                                <th style="text-align: center;">Patente</th> 
+                                <th style="text-align: center;">Siniestro</th> 
+                                <th style="text-align: center;">Companía</th> 
+                                <th style="text-align: center;">Categoria</th> 
+                                <th style="text-align: center;">Fecha alta</th> 
                                 <th style="text-align: center;">Acciones</th>  
 
                             </tr>
@@ -24,11 +30,19 @@
                         <tbody>
                             {% for item in entities %}
                                 <tr>
-                                    <td>{{ item.nombre }}</td>
+                                    <td>{{ item.marca }}</td>
+                                    <td>{{ item.modelo }}
+                                    <td>{{ item.patente }}
+                                    <td>{{ item.siniestro }}
+                                    <td>{{ item.compania.nombre }}
+                                    <td>{{ item.categoria.nombre }}
+                                    <td>{{ item.fechaAlta | date('d-M-Y') }}
+                                
+
 
                                     <td class="td-acciones text-center">
-                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
-                                        <a class="btn btn-sm btn-default" href="{{ path('proyecto_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
+                                        <a class="btn btn-sm btn-default" href="{{ path('vehiculo_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
+                                        <a class="btn btn-sm btn-default" href="{{ path('vehiculo_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
 
                                     </td>
                                 </tr>
@@ -39,4 +53,13 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#datatable-fixed-header').DataTable({
+            fixedHeader: true,
+            deferRender: true,
+        });
+    </script>
 {% endblock %}

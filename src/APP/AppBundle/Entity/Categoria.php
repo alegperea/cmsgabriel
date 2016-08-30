@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * APP\AppBundle\Entity\Categoria
+ * Categoria
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="APP\AppBundle\Entity\CategoriaRepository")
@@ -28,21 +28,73 @@ class Categoria {
      * @ORM\Column(name="nombre", type="string", length=255, unique=true)
      */
     private $nombre;
+    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
+     */
+    private $usuarioAlta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaAlta", type="datetime")
+     */
+    private $fechaAlta;
+
 
     
-   
-    function getId() {
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
         return $this->id;
     }
 
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return Plataforma
+     */
+    public function setNombre($nombre) {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string 
+     */
     public function getNombre() {
         return $this->nombre;
     }
 
   
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
+    function getUsuarioAlta() {
+        return $this->usuarioAlta;
+    }
+
+    function getFechaAlta() {
+        return $this->fechaAlta;
+    }
+
+    function setUsuarioAlta($usuarioAlta) {
+        $this->usuarioAlta = $usuarioAlta;
+    }
+
+    function setFechaAlta($fechaAlta) {
+        $this->fechaAlta = $fechaAlta;
+    }
+
+    public function __toString() {
+        return $this->nombre;
     }
 
 
+    
 }
