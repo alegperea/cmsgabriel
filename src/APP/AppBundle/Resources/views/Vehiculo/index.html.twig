@@ -23,6 +23,7 @@
                                 <th style="text-align: center;">Companía</th> 
                                 <th style="text-align: center;">Categoria</th> 
                                 <th style="text-align: center;">Fecha alta</th> 
+                                <th style="text-align: center;">Valor</th> 
                                 <th style="text-align: center;">Acciones</th>  
 
                             </tr>
@@ -34,9 +35,10 @@
                                     <td>{{ item.modelo }}
                                     <td>{{ item.patente }}
                                     <td>{{ item.siniestro }}
-                                    <td>{{ item.compania.nombre }}
-                                    <td>{{ item.categoria.nombre }}
-                                    <td>{{ item.fechaAlta | date('d-M-Y') }}
+                                    <td>{{ item.compania.nombre }}</td>
+                                    <td><span class="label label-info">{{ item.categoria.nombre }}</span></td>
+                                    <td>{{ item.fechaAlta | date('d-M-Y') }}</td>
+                                    <td><span class="label label-success">$ {{ item.valor }}</span></td>
                                 
 
 

@@ -13,6 +13,11 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Vehiculo {
 
+    
+    const en_venta = 1;
+    const vendido = 2;
+    const publicado = 1;
+    const despublicado = 2;
     /**
      * @var integer
      *
@@ -21,6 +26,13 @@ class Vehiculo {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codProd", type="string", length=255)
+     */
+    private $codProd;
 
     /**
      * @var string
@@ -59,6 +71,27 @@ class Vehiculo {
     private $compania;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="notas", type="string", length=255)
+     */
+    private $notas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="valor", type="integer")
+     */
+    private $valor;
+
+    /**
      * @var APP\AppBundle\Entity\Categoria
      *
      * @ORM\ManyToOne(targetEntity = "APP\AppBundle\Entity\Categoria")
@@ -72,11 +105,37 @@ class Vehiculo {
     private $usuarioAlta;
 
     /**
+     * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
+     */
+    private $usuarioMod;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fechaAlta", type="datetime")
      */
     private $fechaAlta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaMod", type="datetime")
+     */
+    private $fechaMod;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estado", type="integer")
+     */
+    private $estado;
+    
+        /**
+     * @var integer
+     *
+     * @ORM\Column(name="publicado", type="integer")
+     */
+    private $publicado;
 
     /**
      * Get id
@@ -151,8 +210,72 @@ class Vehiculo {
         $this->fechaAlta = $fechaAlta;
     }
 
+    function getCodProd() {
+        return $this->codProd;
+    }
+
+    function getDescripcion() {
+        return $this->descripcion;
+    }
+
+    function getNotas() {
+        return $this->notas;
+    }
+
+    function getValor() {
+        return $this->valor;
+    }
+
+    function setCodProd($codProd) {
+        $this->codProd = $codProd;
+    }
+
+    function setDescripcion($descripcion) {
+        $this->descripcion = $descripcion;
+    }
+
+    function setNotas($notas) {
+        $this->notas = $notas;
+    }
+
+    function setValor($valor) {
+        $this->valor = $valor;
+    }
+
+    function getUsuarioMod() {
+        return $this->usuarioMod;
+    }
+
+    function getFechaMod() {
+        return $this->fechaMod;
+    }
+
+    function setUsuarioMod($usuarioMod) {
+        $this->usuarioMod = $usuarioMod;
+    }
+
+    function setFechaMod(\DateTime $fechaMod) {
+        $this->fechaMod = $fechaMod;
+    }
+
     public function __toString() {
         return $this->marca;
     }
+    function getEstado() {
+        return $this->estado;
+    }
+
+    function getPublicado() {
+        return $this->publicado;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
+
+    function setPublicado($publicado) {
+        $this->publicado = $publicado;
+    }
+
 
 }

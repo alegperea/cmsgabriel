@@ -9,6 +9,8 @@ use Doctrine\ORM\EntityRepository;
 use \Symfony\Component\OptionsResolver\OptionsResolver;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
 use \Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use \Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class VehiculoType extends AbstractType {
 
@@ -28,8 +30,8 @@ class VehiculoType extends AbstractType {
                     ),
                     'class' => 'AppBundle:Categoria',
                     'query_builder' => function(EntityRepository $er) {
-                        return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
-                    },
+                return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+            },
                 ))
                 ->add('compania', EntityType::class, array(
                     'attr' => array(
@@ -37,9 +39,21 @@ class VehiculoType extends AbstractType {
                     ),
                     'class' => 'AppBundle:Compania',
                     'query_builder' => function(EntityRepository $er) {
-                        return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
-                    },
-                ));
+                return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+            },
+                ))
+                ->add('valor', IntegerType::class, array('attr' => array('class' => 'form-control')))
+                ->add('estado', CheckboxType::class, array(
+                    'attr' => array('class' => 'js-switch form-control',
+                        'data-switchery'=> "true"),
+                    'label' => 'En venta'))
+                ->add('publicado', CheckboxType::class, array(
+                    'attr' => array('class' => 'js-switch form-control', 
+                        'data-switchery'=> "true"),
+                        
+                    
+                    ));
+                   
     }
 
     /**

@@ -28,12 +28,37 @@ class Compania {
      * @ORM\Column(name="nombre", type="string", length=255, unique=true)
      */
     private $nombre;
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="integer")
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cuit", type="string", length=255)
+     */
+    private $cuit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
 
     /**
      * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
      */
     private $usuarioAlta;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
+     */
+    private $usuarioMod;
 
     /**
      * @var \DateTime
@@ -42,8 +67,13 @@ class Compania {
      */
     private $fechaAlta;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaMod", type="datetime")
+     */
+    private $fechaMod;
 
-    
     /**
      * Get id
      *
@@ -74,7 +104,6 @@ class Compania {
         return $this->nombre;
     }
 
-  
     function getUsuarioAlta() {
         return $this->usuarioAlta;
     }
@@ -94,7 +123,45 @@ class Compania {
     public function __toString() {
         return $this->nombre;
     }
+    function getTelefono() {
+        return $this->telefono;
+    }
+
+    function getCuit() {
+        return $this->cuit;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getUsuarioMod() {
+        return $this->usuarioMod;
+    }
+
+    function getFechaMod() {
+        return $this->fechaMod;
+    }
+
+    function setTelefono($telefono) {
+        $this->telefono = $telefono;
+    }
+
+    function setCuit($cuit) {
+        $this->cuit = $cuit;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setUsuarioMod($usuarioMod) {
+        $this->usuarioMod = $usuarioMod;
+    }
+
+    function setFechaMod(\DateTime $fechaMod) {
+        $this->fechaMod = $fechaMod;
+    }
 
 
-    
 }
