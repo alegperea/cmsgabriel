@@ -11,6 +11,7 @@ use \Symfony\Component\Form\Extension\Core\Type\TextType;
 use \Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use \Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use \Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class VehiculoType extends AbstractType {
 
@@ -20,8 +21,17 @@ class VehiculoType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                ->add('marca', TextType::class, array('attr' => array('class' => 'form-control')))
+                ->add('marca', EntityType::class, array(
+                    'attr' => array(
+                        'class' => 'select2_single form-control col-md-7 col-xs-12',
+                    ),
+                    'class' => 'AppBundle:Marca',
+                    'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+            },
+                ))
                 ->add('modelo', TextType::class, array('attr' => array('class' => 'form-control')))
+                ->add('codProd', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('patente', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('siniestro', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('categoria', EntityType::class, array(
@@ -45,15 +55,14 @@ class VehiculoType extends AbstractType {
                 ->add('valor', IntegerType::class, array('attr' => array('class' => 'form-control')))
                 ->add('estado', CheckboxType::class, array(
                     'attr' => array('class' => 'js-switch form-control',
-                        'data-switchery'=> "true"),
+                        'data-switchery' => "true"),
                     'label' => 'En venta'))
                 ->add('publicado', CheckboxType::class, array(
-                    'attr' => array('class' => 'js-switch form-control', 
-                        'data-switchery'=> "true"),
-                        
-                    
-                    ));
-                   
+                    'attr' => array('class' => 'js-switch form-control',
+                        'data-switchery' => "true"),
+        ))
+                ->add('descripcion', TextareaType::class, array('attr' => array('class' => 'form-control')))
+                ->add('notas', TextareaType::class, array('attr' => array('class' => 'form-control')));
     }
 
     /**

@@ -35,6 +35,13 @@ class Compania {
      * @ORM\Column(name="telefono", type="integer")
      */
     private $telefono;
+    
+       /**
+     * @var integer
+     *
+     * @ORM\Column(name="celular", type="integer")
+     */
+    private $celular;
 
     /**
      * @var string
@@ -49,6 +56,20 @@ class Compania {
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
+    
+      /**
+     * @var string
+     *
+     * @ORM\Column(name="direccion", type="string", length=255)
+     */
+    private $direccion;
+    
+      /**
+     * @var string
+     *
+     * @ORM\Column(name="observaciones", type="string", length=255)
+     */
+    private $observaciones;
 
     /**
      * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
@@ -161,6 +182,30 @@ class Compania {
 
     function setFechaMod(\DateTime $fechaMod) {
         $this->fechaMod = $fechaMod;
+    }
+
+    function getCelular() {
+        return $this->celular;
+    }
+
+    function getDireccion() {
+        return $this->direccion;
+    }
+
+    function getObservaciones() {
+        return $this->observaciones;
+    }
+
+    function setCelular($celular) {
+        $this->celular = $celular;
+    }
+
+    function setDireccion($direccion) {
+        $this->direccion = $direccion;
+    }
+
+    function setObservaciones($observaciones) {
+        $this->observaciones = $observaciones;
     }
 
 

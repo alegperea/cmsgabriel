@@ -38,10 +38,13 @@ class CompaniaController extends Controller {
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {                  
+        if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity->setFechaAlta(new \DateTime());
-            $entity->setEstado(1);
+            $entity->setFechaMod(new \DateTime());
+            $usuario = $this->get('security.token_storage')->getToken()->getUser();
+            $entity->setUsuarioAlta($usuario);
+            $entity->setUsuarioMod($usuario);
             $em->persist($entity);
             $em->flush();
 
@@ -151,6 +154,9 @@ class CompaniaController extends Controller {
         if ($editForm->isValid()) {
             /** @var $entity Compania */
             $usuario = $this->get('security.token_storage')->getToken()->getUser();
+            $entity->setFechaMod(new \DateTime());
+            $entity->setUsuarioMod($usuario);
+
             $em->persist($entity);
             $em->flush();
 
@@ -161,7 +167,7 @@ class CompaniaController extends Controller {
         $this->setFlash('error', 'Ha ocurrido un error');
         return $this->render('AppBundle:Compania:edit.html.twig', array(
                     'entity' => $entity,
-                    'form' => $editForm->createView(),                   
+                    'form' => $editForm->createView(),
         ));
     }
 

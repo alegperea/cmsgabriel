@@ -6,26 +6,26 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">       
                 <div class="x_title">
-                    <h2>Detalle del usuario</h2>
+                    <h2>Detalle del vehiculo</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <div class="show-view">
-                        <div><label>Proyecto: </label> {{ entity.nombre |default('') }}</div>
-                        <div><label>Usuarios asignados: </label>
-                            <ul>
-                                {% for usuario in entity.usuarios %}
-
-                                    <li>   {{ usuario.username }} </li>
-
-                                {% endfor %}
-                            </ul>
-                        </div>
+                        <label>Marca </label><p>{{ entity.marca.nombre }}</p>
+                        <label>Marca </label><p>{{ entity.modelo }}</p>
+                        <label>Patente </label><p>{{ entity.patente }}</p>
+                        <label>Siniestro </label><p>{{ entity.siniestro }}</p>                       
+                        <label>Companía </label>
+                        <p><span class="label label-info">{{ entity.compania.nombre }}</span></p>
+                        <label>Fecha de alta </label>
+                        <p>{{ entity.fechaAlta | date('d-M-Y') }}</p>
+                        <label>Valor </label>
+                        <p><span class="label label-success">$ {{ entity.valor }}</span></p>
 
                         <div class="ln_solid"></div>
                         <div class="text-center">
                             {% if is_granted('ROLE_ADMINISTRADOR') %}
-                                {% include 'CoreBundle:Default:volverEditar.html.twig' with { 'path' : 'usuario', 'id' : entity.id } %} 
+                                {% include 'CoreBundle:Default:volverEditar.html.twig' with { 'path' : 'vehiculo', 'id' : entity.id } %} 
                             {% else %}
 
                             {% endif %}

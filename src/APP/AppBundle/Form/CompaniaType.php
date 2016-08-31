@@ -23,7 +23,7 @@ class CompaniaType extends AbstractType {
                 ->add('telefono', TextType::class, array('attr' => array('class' => 'form-control')))                                
                 ->add('celular', TextType::class, array('attr' => array('class' => 'form-control')))                                
                 ->add('cuit', TextType::class, array('attr' => array('class' => 'form-control')))                                
-                ->add('mail', TextType::class, array('attr' => array('class' => 'form-control')))                                
+                ->add('email', TextType::class, array('attr' => array('class' => 'form-control')))                                
                 ->add('direccion', TextType::class, array('attr' => array('class' => 'form-control')))                                
                 ->add('observaciones', TextareaType::class, array('attr' => array('class' => 'form-control')));                                
 

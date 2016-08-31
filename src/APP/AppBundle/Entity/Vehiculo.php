@@ -30,14 +30,15 @@ class Vehiculo {
     /**
      * @var string
      *
-     * @ORM\Column(name="codProd", type="string", length=255)
+     * @ORM\Column(name="codProd", type="string", length=255, nullable = true)
      */
     private $codProd;
 
-    /**
-     * @var string
+   /**
+     * @var APP\AppBundle\Entity\Marca
      *
-     * @ORM\Column(name="marca", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity = "APP\AppBundle\Entity\Marca")
+     * @ORM\JoinColumn(name = "marca_id", referencedColumnName = "id", nullable = false)
      */
     private $marca;
 
@@ -73,14 +74,14 @@ class Vehiculo {
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=255)
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="notas", type="string", length=255)
+     * @ORM\Column(name="notas", type="string", length=255, nullable=true)
      */
     private $notas;
 
@@ -126,14 +127,14 @@ class Vehiculo {
     /**
      * @var integer
      *
-     * @ORM\Column(name="estado", type="integer")
+     * @ORM\Column(name="estado", type="boolean")
      */
     private $estado;
     
         /**
      * @var integer
      *
-     * @ORM\Column(name="publicado", type="integer")
+     * @ORM\Column(name="publicado", type="boolean")
      */
     private $publicado;
 

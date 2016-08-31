@@ -41,8 +41,11 @@ class VehiculoController extends Controller {
         if ($form->isValid()) {                  
             $em = $this->getDoctrine()->getManager();
             $entity->setFechaAlta(new \DateTime());
-            $usuarioAlta = $this->get('security.token_storage')->getToken()->getUser();
-            $entity->setUsuarioAlta($usuarioAlta);
+            $usuario = $this->get('security.token_storage')->getToken()->getUser();
+            $entity->setUsuarioAlta($usuario);
+            $entity->setUsuarioMod($usuario);
+            $entity->setFechaAlta(new \DateTime());
+            $entity->setFechaMod(new \DateTime());
             $em->persist($entity);
             $em->flush();
 
@@ -152,6 +155,8 @@ class VehiculoController extends Controller {
         if ($editForm->isValid()) {
             /** @var $entity Vehiculo */
             $usuario = $this->get('security.token_storage')->getToken()->getUser();
+            $entity->setFechaMod(new \DateTime());
+            $entity->setUsuarioMod($usuario);
             $em->persist($entity);
             $em->flush();
 
