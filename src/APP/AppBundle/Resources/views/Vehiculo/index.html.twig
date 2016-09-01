@@ -43,6 +43,7 @@
 
 
                                     <td class="td-acciones text-center">
+                                        <a class="btn btn-sm btn-default" href="{{ path('vehiculo_vender', { 'id': item.id }) }}">Vender</a>
                                         <a class="btn btn-sm btn-default" href="{{ path('vehiculo_show', { 'id': item.id }) }}">{% include ":includes:_verIcon.html.twig" %}</a>
                                         <a class="btn btn-sm btn-default" href="{{ path('vehiculo_edit', { 'id': item.id }) }}">{% include ":includes:_editIcon.html.twig" %}</a>
 

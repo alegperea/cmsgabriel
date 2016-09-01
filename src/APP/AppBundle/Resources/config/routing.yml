@@ -8,12 +8,20 @@ AppBundle_default:
     
 AppBundle_vehiculo:
     resource: "@AppBundle/Resources/config/routing/vehiculo.yml"
-    prefix:   /vehiculo
+    prefix:   /vehiculos
 
 AppBundle_categoria:
     resource: "@AppBundle/Resources/config/routing/categoria.yml"
-    prefix:   /categoria
+    prefix:   /categorias
 
 AppBundle_compania:
     resource: "@AppBundle/Resources/config/routing/compania.yml"
-    prefix:   /compania
+    prefix:   /companias
+    
+AppBundle_cliente:
+    resource: "@AppBundle/Resources/config/routing/cliente.yml"
+    prefix:   /clientes
+    
+AppBundle_proveedor:
+    resource: "@AppBundle/Resources/config/routing/proveedor.yml"
+    prefix:   /proveedores

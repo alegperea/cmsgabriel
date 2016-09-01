@@ -1,0 +1,40 @@
+proveedor:
+    path:  /
+    defaults: { _controller: "AppBundle:Proveedor:index" }
+
+proveedor_show:
+    path:  /{id}/show
+    defaults: { _controller: "AppBundle:Proveedor:show" }
+
+proveedor_new:
+    path:  /new
+    defaults: { _controller: "AppBundle:Proveedor:new" }
+
+proveedor_create:
+    path:  /create
+    defaults: { _controller: "AppBundle:Proveedor:create" }
+    requirements: { _method: post }
+    
+proveedor_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "AppBundle:Proveedor:edit" }
+
+proveedor_update:
+    path:  /{id}/update
+    defaults: { _controller: "AppBundle:Proveedor:update" }
+    requirements: { _method: post }
+
+paginas_inicio:
+    path:  /paginasinicio
+    defaults: { _controller: "AppBundle:Proveedor:paginasInicio" }
+    requirements: { _method: post }
+
+proveedor_eliminar:
+    path:  /eliminar
+    defaults: { _controller: "AppBundle:Proveedor:eliminar" }
+    requirements: { _method: post }
+    
+proveedor_delete:
+    path:  /{id}/delete
+    defaults: { _controller: "AppBundle:Proveedor:delete" }
+    requirements: { _method: post|delete }
