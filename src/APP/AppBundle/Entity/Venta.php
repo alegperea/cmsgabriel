@@ -81,7 +81,7 @@ class Venta {
     /**
      * @var integer
      *
-     * @ORM\Column(name="estado", type="boolean")
+     * @ORM\Column(name="estado", type="integer")
      */
     private $estado;
     
@@ -126,11 +126,11 @@ class Venta {
         return $this->estado;
     }
 
-    function setCliente(APP\AppBundle\Entity\Cliente $cliente) {
+    function setCliente($cliente) {
         $this->cliente = $cliente;
     }
 
-    function setVehiculo(APP\AppBundle\Entity\Vehiculo $vehiculo) {
+    function setVehiculo($vehiculo) {
         $this->vehiculo = $vehiculo;
     }
 

@@ -1,0 +1,16 @@
+venta:
+    path:  /
+    defaults: { _controller: "AppBundle:Venta:index" }
+
+vehiculo_show:
+    path:  /{id}/show
+    defaults: { _controller: "AppBundle:Venta:show" }
+    
+venta_edit:
+    path:  /{id}/edit
+    defaults: { _controller: "AppBundle:Venta:edit" }
+
+venta_update:
+    path:  /{id}/update
+    defaults: { _controller: "AppBundle:Venta:update" }
+    requirements: { _method: post }

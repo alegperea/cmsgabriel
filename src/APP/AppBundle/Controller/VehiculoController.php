@@ -41,10 +41,11 @@ class VehiculoController extends Controller {
         $entity = new Venta();
         $form = $this->CreateForm(VentaType::class, $entity);
         if ($request->getMethod() == 'POST') {
-
+  
             $form->handleRequest($request);
-            $entity = new Venta();
+
             if ($form->isValid()) {
+              
                 $em = $this->getDoctrine()->getManager();
                 $entity->setFechaAlta(new \DateTime());
                 $usuario = $this->get('security.token_storage')->getToken()->getUser();

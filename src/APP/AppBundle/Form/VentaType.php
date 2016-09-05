@@ -10,6 +10,8 @@ use \Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use \Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 use \Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use \Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use \Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
 class VentaType extends AbstractType {
@@ -27,12 +29,20 @@ class VentaType extends AbstractType {
                     'class' => 'AppBundle:Cliente',
                     'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
-                },
+            },
                 ))
                 ->add('valor', IntegerType::class, array('attr' => array('class' => 'form-control')))
-                ->add('observaciones', TextareaType::class, array('attr' => array('class' => 'form-control')));
-                                      
-
+                ->add('observaciones', TextareaType::class, array('attr' => array('class' => 'form-control')))
+                ->add('estado', ChoiceType::class, array(
+                            'choices' => array('Pendiente'=> '1', 'Concretada' => '2'),
+                            'attr' => array(
+                                'class' => 'select2_single form-control col-md-7 col-xs-12'),
+                            'label' => 'Estado de la venta',
+                            'empty_data'=> null,
+                            'multiple'=> false,
+                            'expanded'=> false
+                            
+                    ));
     }
 
     /**

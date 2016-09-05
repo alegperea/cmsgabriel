@@ -25,3 +25,7 @@ AppBundle_cliente:
 AppBundle_proveedor:
     resource: "@AppBundle/Resources/config/routing/proveedor.yml"
     prefix:   /proveedores
+    
+AppBundle_venta:
+    resource: "@AppBundle/Resources/config/routing/venta.yml"
+    prefix:   /venta
