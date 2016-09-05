@@ -10,7 +10,7 @@
       <div id="login" class="animate form">
         <section class="login_content">
            <form action="{{ path('usuario_login_check') }}" method="post">
-            <div class="text-center margin-40"><img class="img-responsive" src="" alt="Symfony!" /></div>
+            <div style="margin:0 20px 20px 80px;" class="text-center margin-40"><img class="img-responsive" src="{{ asset('images/logo.gif') }}" alt="Symfony!" /></div>
             
             {% if error %}
             <div class="alert alert-danger fade in alert-dismissable">

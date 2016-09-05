@@ -5,6 +5,7 @@ namespace APP\AppBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use APP\AppBundle\Entity\Vehiculo;
+use APP\AppBundle\Form\VehiculoType;
 use APP\AppBundle\Form\VentaType;
 use APP\AppBundle\Entity\Venta;
 
@@ -34,19 +35,20 @@ class VehiculoController extends Controller {
      *
      */
     public function venderAction($id, Request $request) {
-        
-        $em = $this->getDoctrine()->getManager();        
+
+        $em = $this->getDoctrine()->getManager();
         $vehiculo = $em->getRepository('AppBundle:Vehiculo')->find($id);
-        $form = $this->CreateForm(VentaType::class, $vehiculo);
+        $entity = new Venta();
+        $form = $this->CreateForm(VentaType::class, $entity);
         if ($request->getMethod() == 'POST') {
-            
+
             $form->handleRequest($request);
             $entity = new Venta();
-            if ($form->isValid()) {                  
+            if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $entity->setFechaAlta(new \DateTime());
                 $usuario = $this->get('security.token_storage')->getToken()->getUser();
-                
+
                 $entity->setUsuarioAlta($usuario);
                 $entity->setUsuarioMod($usuario);
                 $entity->setFechaAlta(new \DateTime());
@@ -74,7 +76,7 @@ class VehiculoController extends Controller {
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {                  
+        if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity->setFechaAlta(new \DateTime());
             $usuario = $this->get('security.token_storage')->getToken()->getUser();
@@ -95,7 +97,7 @@ class VehiculoController extends Controller {
                     'form' => $form->createView(),
         ));
     }
-    
+
     /**
      * Función para crear Vehiculos por Ajax
      */
@@ -203,7 +205,7 @@ class VehiculoController extends Controller {
         $this->setFlash('error', 'Ha ocurrido un error');
         return $this->render('AppBundle:Vehiculo:edit.html.twig', array(
                     'entity' => $entity,
-                    'form' => $editForm->createView(),                   
+                    'form' => $editForm->createView(),
         ));
     }
 

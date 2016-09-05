@@ -47,11 +47,3 @@
         </div>
     </div>
 {% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        var tabla = mostrarTabla('#tabla');
-        eliminarRestaurarDatatables(" {{ path('usuario_eliminar') }} ", " {{ path('usuario_restaurar') }}", tabla);
-    </script>
-{% endblock %}

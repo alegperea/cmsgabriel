@@ -40,7 +40,7 @@ class VentaType extends AbstractType {
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'APP\AppBundle\Entity\Vehiculo'
+            'data_class' => 'APP\AppBundle\Entity\Venta'
         ));
     }
 
@@ -53,7 +53,7 @@ class VentaType extends AbstractType {
      */
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'APP\AppBundle\Entity\Vehiculo',
+            'data_class' => 'APP\AppBundle\Entity\Venta',
         ));
     }
 
