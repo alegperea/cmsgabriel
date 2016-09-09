@@ -1,25 +1,85 @@
 {% extends '::base_frontend.html.twig' %}
-    
+
 {% block body %}
 
-<body class="nav-md">
+    <body class="home">
+        {% include "FrontBundle:Default:_menu.html.twig" %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
 
-  <div class="container body">
+                    <div id="sequence" class="sequence">
+                        <ul class="sequence-canvas">
 
-    <div class="main_container">
+                            <li>
+                                <img class="back" src="{{ asset('img/home/vender.jpg') }}">
+                                <div class="sm top">¿Queres </div>
+                                <div class="lg bottom">vender tu auto?</div>
+                            </li>
 
-        <h2>FRONTPAGE</h2>
+                            <li>
+                                <img class="back" src="{{ asset('img/home/lote.jpg') }}">
+                                <div class="sm top">Compramos </div>
+                                <div class="lg bottom">lotes de vehículos</div>
+                            </li>
 
-    </div>
+                            <li>
+                                <img class="back" src="{{ asset('img/home/direccion.jpg') }}">
+                                <div class="lg top">Nos mudamos</div>
+                                <div class="sm bottom">Urquiza 4210, Caseros</div>
+                            </li>
 
-  </div>
+                            <li>
+                                <img class="back" src="{{ asset('img/home/fx.jpg') }}">
+                                <div class="sm top">Coches para</div>
+                                <div class="lg bottom">Efectos especiales</div>
+                            </li>
 
-  <div id="custom_notifications" class="custom-notifications dsp_none">
-    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-    </ul>
-    <div class="clearfix"></div>
-    <div id="notif-group" class="tabbed_notifications"></div>
-  </div>
-</body> 
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="cajah">Estas empresas confian en nosotros</h4>
+
+                    <ul class="empresas">
+                        <li><img src="{{ asset('img/home/empresas/ch/allianz.jpg') }}" alt="Allianz" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/copan.jpg') }}" alt="Copan" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/federal.jpg') }}" alt="Federal" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/la2da.jpg') }}" alt="La Segunda" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/liberty.jpg') }}" alt="Liberty" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/mercantil-andina.jpg') }}" alt="Mercantil Andina" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/meridional.jpg') }}" alt="Meridional" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/orbis.jpg') }}" alt="Orbis" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/parana.jpg') }}" alt="Parana" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/rio-uruguay.jpg') }}" alt="Río Uruguar" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/rsa.jpg') }}" alt="RSA" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/sancor_seguros.jpg') }}" alt="Sancor" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/sancristobal.jpg') }}" alt="San Cristobal" class="img-responsive"></li>
+                        <li><img src="{{ asset('img/home/empresas/ch/seguros-federal.jpg') }}" alt="Seguros Federal" class="img-responsive"></li>
+                    </ul>
+                    <br clear="all">
+
+                </div>
+                <div class="col-md-6">
+                    <h4 class="cajah">Consultas online</h4>
+                    <ul class="consultaso">
+                        <li><a href="http://www.anses.gob.ar" target="_blank"><img src="img/home/empresas/ch/anses.jpg" alt="Anses" class="img-responsive"></a></li>
+                        <li><a href="http://www.dnrpa.gob.ar" target="_blank"><img src="img/home/empresas/ch/dnrpa.jpg" alt="DRNPA" class="img-responsive"></a></li>
+                        <li><a href="http://www.buenosaires.gob.ar/consulta-de-infracciones" target="_blank"><img src="img/home/empresas/ch/gcbaI.jpg" alt="Infracciones Ciudad" class="img-responsive"></a></li>
+                        <li><a href="http://www.agip.gov.ar/web/impuestos/patentes.htm" target="_blank"><img src="img/home/empresas/ch/gcbaR.jpg" alt="Rentas Ciudad" class="img-responsive"></a></li>
+                        <li><a href="http://www.rentas.gba.gov.ar/" target="_blank"><img src="img/home/empresas/ch/logoArba.jpg" alt="Arba" class="img-responsive"></a></li>
+                    </ul>
+                    <br clear="all">
+                </div>
+            </div>
+
+        </div>
+        {% include "FrontBundle:Default:_footer.html.twig" %}
+
+    </body>
 
 {% endblock %}  

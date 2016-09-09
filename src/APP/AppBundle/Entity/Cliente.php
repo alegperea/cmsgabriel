@@ -25,14 +25,14 @@ class Cliente {
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255, unique=true)
+     * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido", type="string", length=255, unique=true)
+     * @ORM\Column(name="apellido", type="string", length=255)
      */
     private $apellido;
 
@@ -88,6 +88,10 @@ class Cliente {
      */
     private $usuarioMod;
 
+      /**
+     * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
+     */
+    private $usuarioDel;
     /**
      * @var \DateTime
      *
@@ -101,6 +105,13 @@ class Cliente {
      * @ORM\Column(name="fechaMod", type="datetime")
      */
     private $fechaMod;
+    
+       /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaDel", type="datetime")
+     */
+    private $fechaDel;
 
     /**
      * @var integer
@@ -236,6 +247,22 @@ class Cliente {
 
     function setEstado($estado) {
         $this->estado = $estado;
+    }
+
+    function getFechaDel() {
+        return $this->fechaDel;
+    }
+
+    function setFechaDel(\DateTime $fechaDel) {
+        $this->fechaDel = $fechaDel;
+    }
+
+    function getUsuarioDel() {
+        return $this->usuarioDel;
+    }
+
+    function setUsuarioDel($usuarioDel) {
+        $this->usuarioDel = $usuarioDel;
     }
 
 

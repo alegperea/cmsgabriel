@@ -1,0 +1,272 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,700italic,400italic);
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+body.home li.home,
+body.chocados li.chocados,
+body.contacto li.contacto,
+body.conbaja li.conbaja,
+body.varios li.varios,
+body.fx li.fx,
+body.vender li.vender {
+	background-color: #ec8b37;
+}
+body.home li.home a,
+body.chocados li.chocados a,
+body.contacto li.contacto a,
+body.conbaja li.conbaja a,
+body.varios li.varios a,
+body.fx li.fx a,
+body.vender li.vender a{
+	color:#FFF;
+}
+.azul {
+	color:#1B2F5A;
+}
+.azulB {
+	background-color:#1B2F5A;
+}
+.celeste {
+	color:#92B1CC;
+}
+.celesteB {
+	background-color:#92B1CC;
+}
+.naranja {
+	color:#EC8B37;
+}
+.naranjaB {
+	background-color:#EC8B37;
+}
+.banner {
+	width:100%;
+	height:400px;
+	margin-bottom:15px;
+	position:relative;
+	background: top center repeat:no-repeat;
+	background-size:cover;
+}
+.cajah {
+	width:100%;
+	background-color:#1B2F5A;
+	color:#EC8B37;
+	padding:15px;
+	margin:0 0 15px 0;
+	border-left:#EC8B37 6px solid;
+}
+.cajah > a, 
+.cajah > a:visited {
+	color:#FFF;
+}
+.empresas,
+.consultaso,
+.consultasi {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.empresas  li {
+	float:left;
+	min-height:65px;
+	margin-right:0.5%;
+	width:24.5%;
+	padding:0;
+	margin:0;
+}
+.consultaso  li {
+	float:left;
+	min-height:85px;
+	margin-right:0.5%;
+	width:32.5%;
+}
+.consultasi  li {
+	margin-bottom:5px;
+	padding:5px;
+	width:100%;
+}
+.consultasi  li img {
+	margin:0 auto;
+}
+
+.empresas li img,
+.consultaso li img,
+.consultasi  li {
+	border:#999 1px solid;
+}
+.top-head {
+	height:150px;
+	line-height:150px;
+	background:url(img/backgorund_header.gif) no-repeat left top;
+	background-size:cover;
+}
+.top-head a {
+	padding-top:45px;
+}
+.navbar {
+	background-color:#1B2F5A;
+}
+.navbar-default .navbar-nav > li > a {
+	color:#EC8B37;
+	text-transform:uppercase;
+}
+.navbar-default .navbar-nav > li > a:hover {
+	color:#FFF;
+}
+.navbar-default .navbar-nav > li.active > a {
+	color:#1B2F5A;
+	font-weight:700;
+}
+.navbar-default .navbar-nav > li.active {
+	background-color:#EC8B37;
+}
+@media (min-width:1024px) { 
+	.navbar > .container {
+	    text-align: center;
+	}
+	.navbar-header,.navbar-brand,.navbar .navbar-nav,.navbar .navbar-nav > li {
+	    float: none;
+	    display: inline-block;
+	}
+	.collapse.navbar-collapse {
+	    float: none;
+	    display: inline-block!important;
+	    width: auto;
+	    clear: none;
+	}
+}
+.foot {
+	color:#FFF;
+	background-color:#1B2F5A;
+	margin-top:15px;
+	border-top:#CCC 2px solid;
+	min-height:130px;
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+  resize: vertical;
+}
+.foot .col-md-6 {
+	resize: vertical;
+}
+
+/*------------------------LISTADO----------------------------*/
+
+.listcars {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    padding: 5px 5px 10px;
+    position: relative;
+		overflow:hidden;
+}
+.listcars a {
+	text-align:center;
+	margin:0 auto;
+	text-decoration:none;
+}
+.listcars .desc {
+	background-position:center center;
+	background-repeat:no-repeat;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	height:115px;
+	display:block;
+}
+.listcars span {
+	font-size:16px;
+	font-weight:700;
+	color:#1B2F5A;
+	display:block;
+	padding-left:5%;
+	margin-left:-75%;
+	margin-bottom:6%;
+	background-color:#EC8B37;
+	text-align:center;
+	-webkit-transform: rotate(45deg); 
+  -moz-transform: rotate(45deg);  
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
+	-o-transform: rotate(45deg);
+	transform:rotate(45deg);
+}
+.listcars .desc img {
+	width:100%;
+}
+.listcars .overbox {
+  background-color: #304562;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  z-index: 100;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width:100%;
+  height: 100%;
+  padding: 100px 20px;
+}
+.listcars .consul {
+	position: absolute;
+	width:80%;
+	height:20%;
+  top:-20%;
+  left:10%;
+	z-index: 101;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+}
+.listcars:hover .overbox { 
+	opacity: .9;
+}
+.listcars:hover .consul {
+	opacity:1;
+	 top:40%;
+  left:10%;
+}
+/*http://bootsnipp.com/snippets/featured/3d-buttons-effects-fix  BOTONES 3D */ 
+
+
+/* VER PRODUCTO */
+.verprod h2,
+.verprod h3,
+.verprod h4 {
+	color:#1B2F5A;
+	margin-bottom:15px;
+}
+.verprod p {
+	background-color:#1B2F5A;
+	color:#EC8B37;
+	padding:15px;
+	margin-bottom:15px;
+	font-size:18px;
+	font-weight:700;
+	text-align:center;
+}
+.stylish-input-group {
+	margin-top:4em;
+}
+.bot-send{
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 18px;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}

@@ -13,7 +13,7 @@
               
                 
                 <div class="x_content">
-                    <table id="datatable-fixed-header" class="table table-striped table-bordered">
+                    <table id="datatable-responsive" class="table table-striped table-bordered">
                         <thead>
                             <tr>                                
                                 <th style="text-align: center;">Nombre</th>
@@ -50,10 +50,23 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
+
+    <script type="text/javascript" src="{{asset('vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+
     <script>
-        $('#datatable-fixed-header').DataTable({
-            fixedHeader: true,
-            deferRender: true,
-        });
+     
+     $('#datatable-responsive').DataTable( {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }
+        } );
+        
     </script>
 {% endblock %}

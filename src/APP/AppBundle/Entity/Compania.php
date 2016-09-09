@@ -35,8 +35,8 @@ class Compania {
      * @ORM\Column(name="telefono", type="integer")
      */
     private $telefono;
-    
-       /**
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="celular", type="integer")
@@ -56,15 +56,15 @@ class Compania {
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
-    
-      /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="direccion", type="string", length=255)
      */
     private $direccion;
-    
-      /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="observaciones", type="string", length=255)
@@ -82,6 +82,11 @@ class Compania {
     private $usuarioMod;
 
     /**
+     * @ORM\ManyToOne(targetEntity="APP\UsuarioBundle\Entity\Usuario")
+     */
+    private $usuarioDel;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fechaAlta", type="datetime")
@@ -94,6 +99,20 @@ class Compania {
      * @ORM\Column(name="fechaMod", type="datetime")
      */
     private $fechaMod;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaDel", type="datetime")
+     */
+    private $fechaDel;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estado", type="boolean")
+     */
+    private $estado;
 
     /**
      * Get id
@@ -144,6 +163,7 @@ class Compania {
     public function __toString() {
         return $this->nombre;
     }
+
     function getTelefono() {
         return $this->telefono;
     }
@@ -206,6 +226,22 @@ class Compania {
 
     function setObservaciones($observaciones) {
         $this->observaciones = $observaciones;
+    }
+
+    function getUsuarioDel() {
+        return $this->usuarioDel;
+    }
+
+    function getFechaDel() {
+        return $this->fechaDel;
+    }
+
+    function setUsuarioDel($usuarioDel) {
+        $this->usuarioDel = $usuarioDel;
+    }
+
+    function setFechaDel(\DateTime $fechaDel) {
+        $this->fechaDel = $fechaDel;
     }
 
 
