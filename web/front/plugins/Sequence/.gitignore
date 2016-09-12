@@ -1,8 +1,0 @@
-.DS_Store
-.espressostorage
-*.esproj
-.sass-cache
-/_notes/*
-themes/dev/*
-sftp-config.json
-node_modules/
