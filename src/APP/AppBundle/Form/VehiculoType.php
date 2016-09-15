@@ -12,6 +12,7 @@ use \Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use \Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use \Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use \Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class VehiculoType extends AbstractType {
 
@@ -34,6 +35,11 @@ class VehiculoType extends AbstractType {
                 ->add('codProd', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('patente', TextType::class, array('attr' => array('class' => 'form-control')))
                 ->add('siniestro', TextType::class, array('attr' => array('class' => 'form-control')))
+                ->add('combustible', ChoiceType::class, array(
+                    'label' => 'Combustible',
+                    'choices' => array('Nafta' => '1', 'Diesel' => '2'),
+                    'attr' => array('class' => 'select2_single form-control col-md-7 col-xs-12',),
+                ))
                 ->add('categoria', EntityType::class, array(
                     'attr' => array(
                         'class' => 'form-control select2_single col-md-7 col-xs-12',
@@ -60,7 +66,7 @@ class VehiculoType extends AbstractType {
                 ->add('publicado', CheckboxType::class, array(
                     'attr' => array('class' => 'js-switch form-control',
                         'data-switchery' => "true"),
-        ))
+                ))
                 ->add('descripcion', TextareaType::class, array('attr' => array('class' => 'form-control')))
                 ->add('notas', TextareaType::class, array('attr' => array('class' => 'form-control')));
     }

@@ -13,11 +13,13 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Vehiculo {
 
-    
     const en_venta = 1;
     const vendido = 2;
     const publicado = 1;
     const despublicado = 2;
+    const nafta = 1;
+    const diesel = 2;
+
     /**
      * @var integer
      *
@@ -34,7 +36,7 @@ class Vehiculo {
      */
     private $codProd;
 
-   /**
+    /**
      * @var APP\AppBundle\Entity\Marca
      *
      * @ORM\ManyToOne(targetEntity = "APP\AppBundle\Entity\Marca")
@@ -127,11 +129,18 @@ class Vehiculo {
     /**
      * @var integer
      *
+     * @ORM\Column(name="combustible", type="integer")
+     */
+    private $combustible;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="estado", type="boolean")
      */
     private $estado;
-    
-        /**
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="publicado", type="boolean")
@@ -262,6 +271,7 @@ class Vehiculo {
     public function __toString() {
         return $this->marca;
     }
+
     function getEstado() {
         return $this->estado;
     }
@@ -276,6 +286,14 @@ class Vehiculo {
 
     function setPublicado($publicado) {
         $this->publicado = $publicado;
+    }
+
+    function getCombustible() {
+        return $this->combustible;
+    }
+
+    function setCombustible($combustible) {
+        $this->combustible = $combustible;
     }
 
 

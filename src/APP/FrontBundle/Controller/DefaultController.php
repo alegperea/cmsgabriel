@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBundle:Default:index.html.twig');
     }
+    
+    public function vehiculosAction()
+    {
+        return $this->render('FrontBundle:Default:vehiculos.html.twig');
+    }
 }
