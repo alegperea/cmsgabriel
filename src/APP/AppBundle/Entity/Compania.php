@@ -13,6 +13,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Compania {
 
+    const activo = 1;
+    const inactivo = 2;
+
     /**
      * @var integer
      *
@@ -103,7 +106,7 @@ class Compania {
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaDel", type="datetime")
+     * @ORM\Column(name="fechaDel", type="datetime", nullable = true)
      */
     private $fechaDel;
 
@@ -244,5 +247,12 @@ class Compania {
         $this->fechaDel = $fechaDel;
     }
 
+    function getEstado() {
+        return $this->estado;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
 
 }

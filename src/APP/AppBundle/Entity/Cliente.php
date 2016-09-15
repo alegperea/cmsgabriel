@@ -109,7 +109,7 @@ class Cliente {
        /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaDel", type="datetime")
+     * @ORM\Column(name="fechaDel", type="datetime", nullable = true)
      */
     private $fechaDel;
 

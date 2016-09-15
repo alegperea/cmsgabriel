@@ -42,6 +42,7 @@ class CompaniaController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $entity->setFechaAlta(new \DateTime());
             $entity->setFechaMod(new \DateTime());
+            $entity->setEstado(Compania::activo);
             $usuario = $this->get('security.token_storage')->getToken()->getUser();
             $entity->setUsuarioAlta($usuario);
             $entity->setUsuarioMod($usuario);
