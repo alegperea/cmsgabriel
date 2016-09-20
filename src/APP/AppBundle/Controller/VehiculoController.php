@@ -41,11 +41,11 @@ class VehiculoController extends Controller {
         $entity = new Venta();
         $form = $this->CreateForm(VentaType::class, $entity);
         if ($request->getMethod() == 'POST') {
-  
+
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-              
+
                 $em = $this->getDoctrine()->getManager();
                 $entity->setFechaAlta(new \DateTime());
                 $usuario = $this->get('security.token_storage')->getToken()->getUser();
@@ -65,6 +65,82 @@ class VehiculoController extends Controller {
                     'entity' => $vehiculo,
                     'form' => $form->createView(),
         ));
+    }
+
+    public function imagenesAction($id) {
+
+        $em = $this->getDoctrine()->getManager();
+        $vehiculo = $em->getRepository('AppBundle:Vehiculo')->find($id);
+
+        foreach ($vehiculo->getImagenes() as $imagen) {
+
+            //get an array which has the names of all the files and loop through it 
+            $obj['name'] = $imagen->getPath(); //get the filename in array
+            $obj['size'] = filesize("uploads/" . $imagen->getPath()); //get the flesize in array
+            $result[] = $obj; // copy it to another array
+        }
+
+        $response = new \Symfony\Component\HttpFoundation\Response(json_encode($result));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
+    }
+
+    public function uploadAction(Request $request, $id) {
+
+        if ($request->getMethod() == 'POST') {
+            $em = $this->getDoctrine()->getManager();
+            $doc = $request->files->get('file');
+
+            if (($doc instanceof \Symfony\Component\HttpFoundation\File\UploadedFile)) {
+
+                if (($doc->getSize() < 4000000000)) {
+                    $originalName = $doc->getClientOriginalName();
+                    $archivo = $doc->getClientOriginalName();
+                    $pathName = $doc->getPath();
+                    $name_array = explode('.', $originalName);
+                    $file_type = $name_array[sizeof($name_array) - 1];
+
+                    $valid_filetypes = array('png', 'jpg', 'jpeg', 'gif');
+                    if (in_array(strtolower($file_type), $valid_filetypes)) {
+
+                        //Start Uploading File
+                        $vehiculo = $em->getRepository("AppBundle:Vehiculo")->find($id);
+
+                        $imagen = new \APP\CoreBundle\Entity\Imagen();
+
+                        $imagen->setNombre($originalName);
+                        $imagen->setPath($originalName);
+                        $imagen->setArchivo($archivo);
+                        $imagen->setVehiculo($vehiculo);
+
+                        $imagen->setFile($doc);
+
+                        $imagen->preUpload($file_type);
+                        $imagen->upload();
+
+                        $em->persist($imagen);
+                        $em->flush();
+
+                        print_r("Subir archivo");
+                        exit();
+                    } else {
+                        print_r("archivo invalido");
+                        exit();
+                    }
+                } else {
+                    print_r("Tamaño del archivo exedido");
+                    exit();
+                }
+            } else {
+                print_r("Error de archivo");
+                exit();
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

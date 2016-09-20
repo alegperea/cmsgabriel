@@ -12,5 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class VehiculoRepository extends EntityRepository {
 
+    
+     public function vehiculosPublicados() {
+
+        $qb = $this->createQueryBuilder('v');
+
+
+        $qb->where("v.estado = :en_venta")
+                ->setParameter('en_venta', Vehiculo::en_venta);
+
+        $qb->andWhere("v.publicado = :publicado")
+                ->setParameter('publicado', Vehiculo::publicado);
+  
+        return $qb->getQuery()->getResult();
+    }
+    
 
 }

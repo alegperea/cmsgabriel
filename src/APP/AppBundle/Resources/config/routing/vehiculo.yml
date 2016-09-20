@@ -42,3 +42,11 @@ vehiculo_delete:
     path:  /{id}/delete
     defaults: { _controller: "AppBundle:Vehiculo:delete" }
     requirements: { _method: post|delete }
+    
+vehiculo_upload:
+  path:     /{id}/upload
+  defaults: { _controller: "AppBundle:Vehiculo:upload" }
+
+vehiculo_imagenes:
+  path:     /{id}/imagenes
+  defaults: { _controller: "AppBundle:Vehiculo:imagenes" }

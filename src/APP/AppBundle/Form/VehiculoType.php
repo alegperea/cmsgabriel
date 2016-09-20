@@ -60,10 +60,12 @@ class VehiculoType extends AbstractType {
                 ))
                 ->add('valor', IntegerType::class, array('attr' => array('class' => 'form-control')))
                 ->add('estado', CheckboxType::class, array(
+                    'required' => false,
                     'attr' => array('class' => 'js-switch form-control',
                         'data-switchery' => "true"),
                     'label' => 'En venta'))
                 ->add('publicado', CheckboxType::class, array(
+                    'required' => false,
                     'attr' => array('class' => 'js-switch form-control',
                         'data-switchery' => "true"),
                 ))

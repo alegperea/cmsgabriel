@@ -14,7 +14,7 @@ class DefaultController extends Controller {
         
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Vehiculo')->findAll();
+        $entities = $em->getRepository('AppBundle:Vehiculo')->vehiculosPublicados();
 
         return $this->render('FrontBundle:Default:vehiculos.html.twig', array(
                     'entities' => $entities,

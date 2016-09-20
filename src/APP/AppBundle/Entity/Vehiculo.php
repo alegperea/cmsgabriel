@@ -136,16 +136,21 @@ class Vehiculo {
     /**
      * @var integer
      *
-     * @ORM\Column(name="estado", type="boolean")
+     * @ORM\Column(name="estado", type="boolean", nullable = true)
      */
     private $estado;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="publicado", type="boolean")
+     * @ORM\Column(name="publicado", type="boolean", nullable = true)
      */
     private $publicado;
+
+    /**
+     * @ORM\OneToMany(targetEntity="APP\CoreBundle\Entity\Imagen", mappedBy="vehiculo", cascade={"persist", "remove"})
+     */
+    private $imagenes;
 
     /**
      * Get id
@@ -296,5 +301,22 @@ class Vehiculo {
         $this->combustible = $combustible;
     }
 
+    public function setImagenes($imagenes) {
+        foreach ($imagenes as $imagen) {
+            $imagen->setVehiculo($this);
+        }
+        $this->imagenes = $imagenes;
+
+        return $this;
+    }
+
+    public function getImagenes() {
+        return $this->imagenes;
+    }
+
+    public function addImagenes($imagen) {
+        $imagen->setVehiculo($this);
+        $this->imagenes->add($imagen);
+    }
 
 }
